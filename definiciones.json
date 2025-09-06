@@ -1,0 +1,1068 @@
+{
+  "catalogo_2000_1": {
+    "act_corriente": {
+      "variables": [
+        "Total Activo Corriente"
+      ],
+      "calculo": {
+        "tipo": "directo"
+      }
+    },
+    "act_no_corriente": {
+      "variables": [
+        "Total Activo no Corriente"
+      ],
+      "calculo": {
+        "tipo": "directo"
+      }
+    },
+    "psv_corriente": {
+      "variables": [
+        "Total Pasivo Corriente"
+      ],
+      "calculo": {
+        "tipo": "directo"
+      }
+    },
+    "psv_no_corriente": {
+      "variables": [
+        "Total Pasivo no Corriente"
+      ],
+      "calculo": {
+        "tipo": "directo"
+      }
+    },
+    "capital": {
+      "variables": [
+        "Capital suscrito y /  o asignado",
+        "(-) Capital suscrito no pagado, Acciones en Tesor.",
+        "Aportes futura capitalizacion",
+        "Reservas",
+        "Reserva por revalorizacion del patrimonio",
+        "Reexpresion Monetaria",
+        "Otros superavits"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "(-) Capital suscrito no pagado, Acciones en Tesor."
+        ]
+      }
+    },
+    "ganancia_ejercicio": {
+      "variables": [
+        "Utilidad (Perdida) del ejercicio"
+      ],
+      "calculo": {
+        "tipo": "condicional",
+        "condicion": "mayor_a_cero"
+      }
+    },
+    "perdida_ejercicio": {
+      "variables": [
+        "Utilidad (Perdida) del ejercicio"
+      ],
+      "calculo": {
+        "tipo": "condicional",
+        "condicion": "menor_a_cero"
+      }
+    },
+    "ingreso_operacional": {
+      "variables": [
+        "Ventas gravadas con IVA",
+        "Ventas excentas de IVA o no gravadas",
+        "Exportaciones",
+        "(-) Devoluciones y descuentos en ventas"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "(-) Devoluciones y descuentos en ventas"
+        ]
+      }
+    },
+    "ingreso_no_operacional": {
+      "variables": [
+        "Dividendos percibidos en efectivo",
+        "Rentas excentas y no gravadas",
+        "Rendimientos Financieros",
+        "Otras rentas"
+      ],
+      "calculo": {
+        "tipo": "suma"
+      }
+    },
+    "costos_produccion": {
+      "variables": [
+        "Inventario inicial (bienes no producidos por Cia)",
+        "Compra de productos terminados",
+        "Importaciones de productos terminados",
+        "(-) Inventario final de productos terminados",
+        "Inventario inicial de materia prima",
+        "Compras de materia prima",
+        "Importaciones de materia prima",
+        "(-) inventario final de materia prima",
+        "Mano de obra directa",
+        "Mano de obra indirecta",
+        "Depreciacion de maquinaria, equipo y edif de fabri",
+        "Suministros y materiales",
+        "Seguros de inventario maq, equp. y edif.",
+        "Aportes IESS y beneficios sociales",
+        "Mantenimiento y reparaciones",
+        "Energia, agua y telefono",
+        "Otros gastos de fabricacion",
+        "Inventario inicial de productos en proceso",
+        "(-) Inventario final de productos en proceso",
+        "Inventario inicial de productos terminados",
+        "(-) Inventario final de productos terminados"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "(-) Inventario final de productos terminados",
+          "(-) inventario final de materia prima",
+          "(-) Inventario final de productos en proceso",
+          "(-) Inventario final de productos terminados"
+        ]
+      }
+    },
+    "mano_obra": {
+      "variables": [
+        "Mano de obra directa",
+        "Mano de obra indirecta"
+      ],
+      "calculo": {
+        "tipo": "suma"
+      }
+    },
+    "gastos": {
+      "variables": [
+        "Sueldos, salarios, beneficios sociales e indemniza",
+        "Comisiones en ventas y publicidad",
+        "Gastos de gestion",
+        "Gastos de Viaje",
+        "Agua, luz , telefono, telex y fax",
+        "Impuestos, contribuciones y otros",
+        "Depreciacion de bienes y amortizaciones",
+        "Cuentas incobrables y baja de inventarios",
+        "Amortizacion de perdida por diferencial cambiario",
+        "Intereses y comisiones - LOCALES",
+        "Intereses y Comisiones - AL EXTERIOR",
+        "Provisiones deducibles",
+        "Otros gastos de administracion y ventas",
+        "1% ICC (MAYO A DICIEMBRE)",
+        "Total Gastos no Operacionales"
+      ],
+      "calculo": {
+        "tipo": "suma"
+      }
+    },
+    "utilidad_bruta": {
+      "variables": [
+        "ingreso_operacional",
+        "costos_produccion"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "costos_produccion"
+        ]
+      }
+    },
+    "utilidad_antes_impuestos": {
+      "variables": [
+        "utilidad_bruta",
+        "gastos",
+        "ingreso_no_operacional"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "gastos"
+        ]
+      }
+    },
+    "impuesto_renta": {
+      "variables": [
+        "Impuesto a la Renta"
+      ],
+      "calculo": {
+        "tipo": "directo"
+      }
+    },
+    "utilidad_neta": {
+      "variables": [
+        "utilidad_antes_impuestos",
+        "impuesto_renta"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "impuesto_renta"
+        ]
+      }
+    },
+    "operaciones_partes_relacionadas": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    }
+  },
+  "catalogo_2000_2": {
+    "act_corriente": {
+      "variables": [
+        "TOTAL ACTIVO CORRIENTE"
+      ],
+      "calculo": {
+        "tipo": "directo"
+      }
+    },
+    "act_no_corriente": {
+      "variables": [
+        "TOTAL ACTIVO NO CORRIENTE"
+      ],
+      "calculo": {
+        "tipo": "directo"
+      }
+    },
+    "psv_corriente": {
+      "variables": [
+        "TOTAL PASIVO CORRIENTE"
+      ],
+      "calculo": {
+        "tipo": "directo"
+      }
+    },
+    "psv_no_corriente": {
+      "variables": [
+        "TOTAL PASIVO A LARGO PLAZO"
+      ],
+      "calculo": {
+        "tipo": "directo"
+      }
+    },
+    "capital": {
+      "variables": [
+        "Capital suscrito y/o asignado",
+        "(-) Capital suscrito no pagado, Acciones en Tesor.",
+        "Aportes de socios o accionistas futura capitalizac",
+        "Reservas",
+        "Reserva por revalorizacion del patrimonio",
+        "Reexpresion Monetaria",
+        "Otros superavits"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "(-) Capital suscrito no pagado, Acciones en Tesor."
+        ]
+      }
+    },
+    "ganancia_ejercicio": {
+      "variables": [
+        "Utilidad o (perdida) del ejercicio"
+      ],
+      "calculo": {
+        "tipo": "condicional",
+        "condicion": "mayor_a_cero"
+      }
+    },
+    "perdida_ejercicio": {
+      "variables": [
+        "Utilidad o (perdida) del ejercicio"
+      ],
+      "calculo": {
+        "tipo": "condicional",
+        "condicion": "menor_a_cero"
+      }
+    },
+    "ingreso_operacional": {
+      "variables": [
+        "Ventas gravadas con tarifa 12%",
+        "Ventas gravadas con tarifa cero",
+        "Exportaciones",
+        "(-) Devoluciones y descuentos en ventas"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "(-) Devoluciones y descuentos en ventas"
+        ]
+      }
+    },
+    "ingreso_no_operacional": {
+      "variables": [
+        "Dividendos percibidos en efectivo",
+        "Rentas excentas y no gravadas",
+        "Rendimientos Financieros",
+        "Otras rentas"
+      ],
+      "calculo": {
+        "tipo": "suma"
+      }
+    },
+    "costos_produccion": {
+      "variables": [
+        "Inventario inicial (bienes no producidos por Cia)",
+        "Compra de productos terminados",
+        "Importaciones de productos terminados",
+        "(-) Inventario final de productos terminados",
+        "Inventario inicial de materia prima",
+        "Compras de materia prima",
+        "Importaciones de materia prima",
+        "(-) inventario final de materia prima",
+        "Mano de obra directa",
+        "Mano de obra indirecta",
+        "Depreciacion de maquinaria, equipo y edif de fabri",
+        "Suministros y materiales",
+        "Seguros de inventario maq, equp. y edif.",
+        "Aportes IESS y beneficios sociales",
+        "Mantenimiento y reparaciones",
+        "Energia, agua y telefono",
+        "Otros gastos de fabricacion",
+        "Inventario inicial de productos en proceso",
+        "(-) Inventario final de productos en proceso",
+        "Inventario inicial de productos terminados",
+        "(-) Inventario final de productos terminados"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "(-) Inventario final de productos terminados",
+          "(-) inventario final de materia prima",
+          "(-) Inventario final de productos en proceso",
+          "(-) Inventario final de productos terminados"
+        ]
+      }
+    },
+    "mano_obra": {
+      "variables": [
+        "Mano de obra directa",
+        "Mano de obra indirecta"
+      ],
+      "calculo": {
+        "tipo": "suma"
+      }
+    },
+    "gastos": {
+      "variables": [
+        "Sueldos, salarios, beneficios sociales e indemniza",
+        "Comisiones en ventas y publicidad",
+        "Gastos de gestion",
+        "Gastos de Viaje",
+        "Agua, luz , telefono, telex y fax",
+        "Impuestos, contribuciones y otros",
+        "Depreciacion de bienes y amortizaciones",
+        "Cuentas incobrables y baja de inventarios",
+        "Amortizacion de perdida por diferencial cambiario",
+        "Intereses y comisiones - LOCALES",
+        "Intereses y Comisiones - AL EXTERIOR",
+        "Provisiones deducibles",
+        "Otros gastos de administracion y ventas",
+        "0.8% Impuesto a la circulación de capitales",
+        "Total Gastos no Operacionales"
+      ],
+      "calculo": {
+        "tipo": "suma"
+      }
+    },
+    "utilidad_bruta": {
+      "variables": [
+        "ingreso_operacional",
+        "costos_produccion"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "costos_produccion"
+        ]
+      }
+    },
+    "utilidad_antes_impuestos": {
+      "variables": [
+        "utilidad_bruta",
+        "gastos",
+        "ingreso_no_operacional"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "gastos"
+        ]
+      }
+    },
+    "impuesto_renta": {
+      "variables": [
+        "Impuesto a la Renta causado"
+      ],
+      "calculo": {
+        "tipo": "directo"
+      }
+    },
+    "utilidad_neta": {
+      "variables": [
+        "utilidad_antes_impuestos",
+        "impuesto_renta"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "impuesto_renta"
+        ]
+      }
+    },
+    "operaciones_partes_relacionadas": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    }
+  },
+  "catalogo_2000_3": {
+    "act_corriente": {
+      "variables": ["TOTAL ACTIVO CORRIENTE"],
+      "calculo": { "tipo": "directo" }
+    },
+    "act_no_corriente": {
+      "variables": [
+        "TOTAL ACTIVO FIJO",
+        "TOTAL ACTIVO DIFERIDO",
+        "TOTAL OTROS ACTIVOS"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "psv_corriente": {
+      "variables": ["TOTAL PASIVO CORRIENTE"],
+      "calculo": { "tipo": "directo" }
+    },
+    "psv_no_corriente": {
+      "variables": [
+        "TOTAL PASIVO A LARGO PLAZO",
+        "TOTAL PASIVO DIFERIDO",
+        "TOTAL OTROS PASIVOS"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "capital": {
+      "variables": [
+        "CAPITAL SUSCRITO O ASIGNADO",
+        "(-) CAPITAL SUSCRITO NO PAGADO, ACCIONES EN TESORE",
+        "APORTES DE SOCIOS O ACCION. FUTURA CAPITALIZACION",
+        "RESERVAS (LEGAL, FACULTATIVA, ESTATUTARIA)",
+        "RESERVA DE CAPITAL",
+        "OTROS SUPERAVITS"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["(-) CAPITAL SUSCRITO NO PAGADO, ACCIONES EN TESORE"]
+      }
+    },
+    "ganancia_ejercicio": {
+      "variables": ["UTILIDAD DEL EJERCICIO"],
+      "calculo": { "tipo": "condicional", "condicion": "mayor_a_cero" }
+    },
+    "perdida_ejercicio": {
+      "variables": ["(-) PERDIDA DEL EJERCICIO"],
+      "calculo": { "tipo": "condicional", "condicion": "mayor_a_cero" }
+    },
+    "ingreso_operacional": {
+      "variables": [
+        "VENTAS NETAS GRAVADAS CON TARIFA 12% Y 14%",
+        "VENTAS NETAS GRAVADAS CON TARIFA CERO",
+        "EXPORTACIONES"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "ingreso_no_operacional": {
+      "variables": [
+        "INGRESOS NO OPERACIONALES: DIVIDENDOS PERCIBIDOS",
+        "INGRESOS NO OPERACIONALES: OTROS INGRESOS EXENTOS",
+        "INGRESOS NO OPERACIONALES: RENDIMIENTOS FINANCIER",
+        "INGRESOS NO OPERACIONALES: OTRAS RENTAS"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "costos_produccion": {
+      "variables": [
+        "INV. INICIAL BIENES NO PRODUCIDOS POR LA SOCIEDAD",
+        "COMPRAS NETAS DE BIENES NO PRODUC POR LA SOCIEDAD",
+        "IMPORTACIONES DE BIENES NO PRODUC POR LA SOCIEDAD",
+        "(-)INV.FINAL BIENES NO PRODUCIDOS POR LA SOCIEDAD",
+        "INVENTARIO INICIAL DE MATERIA PRIMA",
+        "COMPRAS NETAS DE MATERIA PRIMA",
+        "IMPORTACIONES DE MATERIA PRIMA",
+        "(-) INVENTARIO FINAL DE MATERIA PRIMA",
+        "M.O.D.: SUELDOS Y SALARIOS",
+        "M.O.D.: BENEFICIOS SOCIALES E INDEMNIZACIONES",
+        "M.O.D.: HONORIARIOS A PERSONAS NATURALES",
+        "M.O.D: HONOR. A EXTRANJEROS POR SERVICIOS OCASIÓN",
+        "GASTOS DE FABRICACION",
+        "DEPRECIACION DE MAQUINARIA Y EQUIPO",
+        "DEPRECIACION ACELERADA DE MAQUINARIA Y EQUIPO",
+        "SUMINISTROS Y MATERIALES",
+        "SEGUROS Y REASEGUROS INV.,MAQUIN., EQUIP., Y EDIF.",
+        "MANTENIMIENTO Y REPARACIONES",
+        "AGUA, ENERGIA, LUZ Y TELECOMUNICACIONES",
+        "M.O.I.SUELDOS Y SALARIOS",
+        "M.O.I.BENEFICIOS SOCIALES E INDEMNIZACIONES",
+        "M.O.I.HONORARIOS A PERSONAS NATURALES",
+        "M.O.I.HONOR. A EXTRANJEROS POR SERVICIOS OCASIONAL",
+        "COMBUSTIBLES",
+        "ARRENDAMIENTO MERCANTIL",
+        "ARREN. BIENES INMUEBLES PROP.DE PERSONAS NATURALES",
+        "ARREN. BIENES INMUEBLES PROP.DE SOCIEDADES",
+        "INVENTARIO INICIAL DE PRODUCTOS EN PROCESO",
+        "(-) INVENTARIO FINAL DE PRODUCTOS EN PROCESO",
+        "INVENTARIO INICIAL DE PRODUCTOS TERMINADOS"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "(-)INV.FINAL BIENES NO PRODUCIDOS POR LA SOCIEDAD",
+          "(-) INVENTARIO FINAL DE MATERIA PRIMA",
+          "(-) INVENTARIO FINAL DE PRODUCTOS EN PROCESO"
+        ]
+      }
+    },
+    "mano_obra": {
+      "variables": [
+        "M.O.D.: SUELDOS Y SALARIOS",
+        "M.O.D.: BENEFICIOS SOCIALES E INDEMNIZACIONES",
+        "M.O.D.: HONORIARIOS A PERSONAS NATURALES",
+        "M.O.D: HONOR. A EXTRANJEROS POR SERVICIOS OCASIÓN",
+        "M.O.I.SUELDOS Y SALARIOS",
+        "M.O.I.BENEFICIOS SOCIALES E INDEMNIZACIONES",
+        "M.O.I.HONORARIOS A PERSONAS NATURALES",
+        "M.O.I.HONOR. A EXTRANJEROS POR SERVICIOS OCASIONAL"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "gastos": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "utilidad_bruta": {
+      "variables": ["ingreso_operacional", "costos_produccion"],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["costos_produccion"]
+      }
+    },
+    "utilidad_antes_impuestos": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "impuesto_renta": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "utilidad_neta": {
+      "variables": [
+        "UTILIDAD DEL EJERCICIO",
+        "(-) PERDIDA DEL EJERCICIO"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["(-) PERDIDA DEL EJERCICIO"]
+      }
+    },
+    "operaciones_partes_relacionadas": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    }
+  },
+  "catalogo_2000_4": {
+    "act_corriente": {
+      "variables": ["TOTAL ACTIVO CORRIENTE"],
+      "calculo": { "tipo": "directo" }
+    },
+    "act_no_corriente": {
+      "variables": [
+        "TOTAL ACTIVO FIJO",
+        "TOTAL ACTIVO DIFERIDO",
+        "TOTAL ACTIVOS LARGO PLAZO"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "psv_corriente": {
+      "variables": ["TOTAL PASIVO CORRIENTE"],
+      "calculo": { "tipo": "directo" }
+    },
+    "psv_no_corriente": {
+      "variables": [
+        "TOTAL PASIVO A LARGO PLAZO",
+        "TOTAL PASIVO DIFERIDO",
+        "TOTAL OTROS PASIVOS"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "capital": {
+      "variables": [
+        "CAPITAL SUSCRITO O ASIGNADO",
+        "(-) CAPITAL SUSCRITO NO PAGADO, ACCIONES EN TESORE",
+        "APORTES DE SOCIOS O ACCION. FUTURA CAPITALIZACION",
+        "RESERVA LEGAL",
+        "RESERVA FACULTATIVA Y ESTATUTARIA",
+        "RESERVA DE CAPITAL",
+        "RESERVA POR VALUACION, DONACIONES Y OTRAS"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["(-) CAPITAL SUSCRITO NO PAGADO, ACCIONES EN TESORE"]
+      }
+    },
+    "ganancia_ejercicio": {
+      "variables": [
+        "UTILIDAD DEL EJERCICIO(DESPUES DE PARTICIPA.E.IMP)"
+      ],
+      "calculo": { "tipo": "condicional", "condicion": "mayor_a_cero" }
+    },
+    "perdida_ejercicio": {
+      "variables": ["(-) PERDIDA DEL EJERCICIO"],
+      "calculo": { "tipo": "condicional", "condicion": "mayor_a_cero" }
+    },
+    "ingreso_operacional": {
+      "variables": [
+        "VENTAS NETAS LOCALES GRAVADAS CON TARIFA 12%",
+        "VENTAS NETAS LOCALES GRAVADAS CON TARIFA CERO",
+        "EXPORTACIONES NETAS"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "ingreso_no_operacional": {
+      "variables": [
+        "INGRESOS NO OPERACIONALES: DIVIDENDOS PERCIBIDOS",
+        "INGRESOS NO OPERACIONALES: OTRAS RENTAS EXENTAS",
+        "INGRESOS NO OPERACIONALES: RENDIMIENTOS FINANCIERO",
+        "INGRESOS NO OPERACIONALES: OTRAS RENTAS",
+        "INGRESOS NO OPERACIONALES:UTIL.VENTA ACTIVOS FIJOS"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "costos_produccion": {
+      "variables": [
+        "INV. INICIAL D BIENES NO PRODUCIDOS X LA SOCIEDAD",
+        "COMPRAS NETAS LOC.D BIENES NO PRODUC.X.LA SOCIEDAD",
+        "IMPORTACIONES DE BIENES NO PRODUC POR LA SOCIEDAD",
+        "(-)INV.FINAL BIENES NO PRODUCIDOS POR LA SOCIEDAD",
+        "INVENTARIO INICIAL DE MATERIA PRIMA",
+        "COMPRAS NETAS LOCALES DE MATERIA PRIMA",
+        "IMPORTACIONES DE MATERIA PRIMA",
+        "(-) INVENTARIO FINAL DE MATERIA PRIMA",
+        "M.O.D.: SUELDOS Y SALARIOS",
+        "M.O.D.: BENEFICIOS SOCIALES E INDEMNIZACIONES",
+        "M.O.D.: HONORIARIOS A PERSONAS NATURALES",
+        "M.O.D: HONOR. A EXTRANJEROS POR SERVICIOS OCASIÓN",
+        "M.O.D: PAGOS EFECTUADOS TERCERIZADORAS",
+        "M.O.D: GASTO PROVISION PARA JUBILACION PATRONAL",
+        "OTROS GASTOS DE FABRICACION",
+        "DEPRECIACION DE ACTIVOS FIJOS",
+        "DEPRE.ACELERADA VEHICULOS EQUIP.TRANSPORTE Y ECM",
+        "SUMINISTROS Y MATERIALES",
+        "SEGUROS Y REASEGUROS INV.,MAQUIN., EQUIP., Y EDIF.",
+        "MANTENIMIENTO Y REPARACIONES",
+        "AGUA, ENERGIA, LUZ Y TELECOMUNICACIONES",
+        "M.O.I.SUELDOS Y SALARIOS"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "(-)INV.FINAL BIENES NO PRODUCIDOS POR LA SOCIEDAD",
+          "(-) INVENTARIO FINAL DE MATERIA PRIMA"
+        ]
+      }
+    },
+    "mano_obra": {
+      "variables": [
+        "M.O.D.: SUELDOS Y SALARIOS",
+        "M.O.D.: BENEFICIOS SOCIALES E INDEMNIZACIONES",
+        "M.O.D.: HONORIARIOS A PERSONAS NATURALES",
+        "M.O.D: HONOR. A EXTRANJEROS POR SERVICIOS OCASIÓN",
+        "M.O.D: PAGOS EFECTUADOS TERCERIZADORAS",
+        "M.O.D: GASTO PROVISION PARA JUBILACION PATRONAL",
+        "M.O.I.SUELDOS Y SALARIOS"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "gastos": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "utilidad_bruta": {
+      "variables": ["ingreso_operacional", "costos_produccion"],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["costos_produccion"]
+      }
+    },
+    "utilidad_antes_impuestos": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "impuesto_renta": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "utilidad_neta": {
+      "variables": [
+        "UTILIDAD DEL EJERCICIO(DESPUES DE PARTICIPA.E.IMP)",
+        "(-) PERDIDA DEL EJERCICIO"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["(-) PERDIDA DEL EJERCICIO"]
+      }
+    },
+    "operaciones_partes_relacionadas": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    }
+  },
+  "catalogo_2000_5": {
+    "act_corriente": {
+      "variables": ["TOTAL ACTIVO CORRIENTE"],
+      "calculo": { "tipo": "directo" }
+    },
+    "act_no_corriente": {
+      "variables": [
+        "TOTAL ACTIVO FIJO",
+        "TOTAL ACTIVO DIFERIDO",
+        "TOTAL ACTIVOS LARGO PLAZO"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "psv_corriente": {
+      "variables": ["TOTAL PASIVO CORRIENTE"],
+      "calculo": { "tipo": "directo" }
+    },
+    "psv_no_corriente": {
+      "variables": [
+        "TOTAL PASIVO A LARGO PLAZO",
+        "TOTAL PASIVO DIFERIDO",
+        "TOTAL OTROS PASIVOS"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "capital": {
+      "variables": [
+        "CAPITAL SUSCRITO, ASIGNADO O PATRIMONIO INSTITUCIO",
+        "(-) CAPITAL SUSCRITO NO PAGADO, ACCIONES EN TESORE",
+        "APORTES DE SOCIOS O ACCION. FUTURA CAPITALIZACION",
+        "RESERVA LEGAL",
+        "RESERVA FACULTATIVA Y ESTATUTARIA",
+        "RESERVA DE CAPITAL",
+        "RESERVA POR VALUACION, DONACIONES Y OTRAS"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["(-) CAPITAL SUSCRITO NO PAGADO, ACCIONES EN TESORE"]
+      }
+    },
+    "ganancia_ejercicio": {
+      "variables": ["UTILIDAD DEL EJERCICIO(DESPUES DE PARTICIPA.E.IMP)"],
+      "calculo": { "tipo": "condicional", "condicion": "mayor_a_cero" }
+    },
+    "perdida_ejercicio": {
+      "variables": ["(-) PERDIDA DEL EJERCICIO"],
+      "calculo": { "tipo": "condicional", "condicion": "mayor_a_cero" }
+    },
+    "ingreso_operacional": {
+      "variables": [
+        "VENTAS NETAS LOCALES GRAVADAS CON TARIFA 12%",
+        "VENTAS NETAS LOCALES GRAVADAS CON TARIFA CERO",
+        "EXPORTACIONES NETAS",
+        "INGRESOS PROVENIENTES DEL EXTERIOR"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "ingreso_no_operacional": {
+      "variables": [
+        "RENDIMIENTOS FINANCIEROS",
+        "OTRAS RENTAS",
+        "DIVIDENDOS PERCIBIDOS LOCALES",
+        "OTRAS RENTAS EXENTAS",
+        "UTILIDAD EN VENTA DE ACTIVOS FIJOS",
+        "INGRESOS POR REEMBOLSO"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "costos_produccion": {
+      "variables": [
+        "INV. INICIAL D BIENES NO PRODUCIDOS X LA SOCIEDAD",
+        "COMPRAS NETAS LOC.D BIENES NO PRODUC.X.LA SOCIEDAD",
+        "IMPORTACIONES DE BIENES NO PRODUC POR LA SOCIEDAD",
+        "(-)INV.FINAL BIENES NO PRODUCIDOS POR LA SOCIEDAD",
+        "INVENTARIO INICIAL DE MATERIA PRIMA",
+        "COMPRAS NETAS LOCALES DE MATERIA PRIMA",
+        "IMPORTACIONES DE MATERIA PRIMA",
+        "(-) INVENTARIO FINAL DE MATERIA PRIMA",
+        "INVENTARIO INICIAL DE PRODUCTOS EN PROCESO"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": [
+          "(-)INV.FINAL BIENES NO PRODUCIDOS POR LA SOCIEDAD",
+          "(-) INVENTARIO FINAL DE MATERIA PRIMA"
+        ]
+      }
+    },
+    "mano_obra": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "gastos": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "utilidad_bruta": {
+      "variables": ["ingreso_operacional", "costos_produccion"],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["costos_produccion"]
+      }
+    },
+    "utilidad_antes_impuestos": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "impuesto_renta": {
+      "variables": ["OBLIGACIONES: IR POR PAGAR DEL EJERCICIO"],
+      "calculo": { "tipo": "directo" }
+    },
+    "utilidad_neta": {
+      "variables": [
+        "UTILIDAD DEL EJERCICIO(DESPUES DE PARTICIPA.E.IMP)",
+        "(-) PERDIDA DEL EJERCICIO"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["(-) PERDIDA DEL EJERCICIO"]
+      }
+    },
+    "operaciones_partes_relacionadas": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    }
+  },
+  "catalogo_2000_6": {
+    "act_corriente": {
+      "variables": ["TOTAL ACTIVO CORRIENTE"],
+      "calculo": { "tipo": "directo" }
+    },
+    "act_no_corriente": {
+      "variables": [
+        "TOTAL ACTIVO FIJOS",
+        "TOTAL ACTIVO DIFERIDO",
+        "TOTAL  ACTIVOS LARGO PLAZO"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "psv_corriente": {
+      "variables": ["TOTAL PASIVO CORRIENTE"],
+      "calculo": { "tipo": "directo" }
+    },
+    "psv_no_corriente": {
+      "variables": [
+        "TOTAL PASIVO LARGO PLAZO",
+        "PASIVOS DIFERIDOS",
+        "OTROS PASIVOS"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "capital": {
+      "variables": [
+        "CAPITAL SUSCRITO Y/O ASIGNADO",
+        "(-) CAP.SUSC. NO PAGADO, ACCIONES  EN TESORERIA",
+        "APORTES DE SOCIOS O ACCIONISTAS PARA FUTURA CAPITALIZACION",
+        "RESERVA LEGAL",
+        "OTRAS RESERVAS"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["(-) CAP.SUSC. NO PAGADO, ACCIONES  EN TESORERIA"]
+      }
+    },
+    "ganancia_ejercicio": {
+      "variables": ["UTILIDAD DEL EJERCICIO"],
+      "calculo": { "tipo": "condicional", "condicion": "mayor_a_cero" }
+    },
+    "perdida_ejercicio": {
+      "variables": ["(-) PERDIDA DEL EJERCICIO"],
+      "calculo": { "tipo": "condicional", "condicion": "mayor_a_cero" }
+    },
+    "ingreso_operacional": {
+      "variables": [
+        "VENTAS NETAS LOCALES GRAVADAS CON TARIFA 12%",
+        "VENTAS NETAS LOCALES GRAVADAS CON TARIFA 0%",
+        "EXPORTACIONES NETAS",
+        "OTROS INGRESOS PROVENIENTES DEL EXTERIOR"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "ingreso_no_operacional": {
+      "variables": [
+        "RENDIMIENTOS FINANCIEROS",
+        "OTRAS RENTAS GRAVADAS",
+        "UTILIDAD EN VENTA DE ACTIVOS FIJOS",
+        "DIVIDENDOS PERCIBIDOS LOCALES",
+        "RENTAS EXENTAS PROVENIENTES DE DONACIONES Y APORTACIONES  DE RECURSOS PUBLICOS",
+        "RENTAS EXENTAS PROVENIENTES DE DONACIONES Y APORTACIONES  DE OTRAS LOCALES",
+        "RENTAS EXENTAS PROVENIENTES DE DONACIONES Y APORTACIONES  DEL EXTERIOR",
+        "OTRAS RENTAS EXENTAS",
+        "VENTAS NETAS DE ACTIVOS FIJOS (INFORMATIVO)",
+        "INGRESOS POR REEMBOLSO COMO INTERMEDIARIO (INFORMATIVO)"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "costos_produccion": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "mano_obra": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "gastos": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "utilidad_bruta": {
+      "variables": ["ingreso_operacional", "costos_produccion"],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["costos_produccion"]
+      }
+    },
+    "utilidad_antes_impuestos": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "impuesto_renta": {
+      "variables": ["IMPUESTO A LA RENTA POR PAGAR DEL EJERCICIO"],
+      "calculo": { "tipo": "directo" }
+    },
+    "utilidad_neta": {
+      "variables": ["UTILIDAD DEL EJERCICIO", "(-) PERDIDA DEL EJERCICIO"],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["(-) PERDIDA DEL EJERCICIO"]
+      }
+    },
+    "operaciones_partes_relacionadas": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    }
+  },
+  "catalogo_2000_7": {
+    "act_corriente": {
+      "variables": ["TOTAL ACTIVO CORRIENTE"],
+      "calculo": { "tipo": "directo" }
+    },
+    "act_no_corriente": {
+      "variables": [
+        "TOTAL ACTIVO FIJOS",
+        "TOTAL ACTIVO DIFERIDO",
+        "TOTAL  ACTIVOS LARGO PLAZO"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "psv_corriente": {
+      "variables": ["TOTAL PASIVO CORRIENTE"],
+      "calculo": { "tipo": "directo" }
+    },
+    "psv_no_corriente": {
+      "variables": [
+        "TOTAL PASIVO LARGO PLAZO",
+        "PASIVOS DIFERIDOS",
+        "OTROS PASIVOS"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "capital": {
+      "variables": [
+        "CAPITAL SUSCRITO Y/O ASIGNADO",
+        "(-) CAP.SUSC. NO PAGADO, ACCIONES  EN TESORERIA",
+        "APORTES DE SOCIOS O ACCIONISTAS PARA FUTURA CAPITALIZACION",
+        "RESERVA LEGAL",
+        "OTRAS RESERVAS"
+      ],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["(-) CAP.SUSC. NO PAGADO, ACCIONES  EN TESORERIA"]
+      }
+    },
+    "ganancia_ejercicio": {
+      "variables": ["UTILIDAD DEL EJERCICIO"],
+      "calculo": { "tipo": "condicional", "condicion": "mayor_a_cero" }
+    },
+    "perdida_ejercicio": {
+      "variables": ["(-) PERDIDA DEL EJERCICIO"],
+      "calculo": { "tipo": "condicional", "condicion": "mayor_a_cero" }
+    },
+    "ingreso_operacional": {
+      "variables": [
+        "VENTAS NETAS LOCALES GRAVADAS CON TARIFA 12%",
+        "VENTAS NETAS LOCALES GRAVADAS CON TARIFA 0%",
+        "EXPORTACIONES NETAS",
+        "OTROS INGRESOS PROVENIENTES DEL EXTERIOR"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "ingreso_no_operacional": {
+      "variables": [
+        "RENDIMIENTOS FINANCIEROS",
+        "OTRAS RENTAS GRAVADAS",
+        "UTILIDAD EN VENTA DE ACTIVOS FIJOS",
+        "DIVIDENDOS PERCIBIDOS LOCALES",
+        "RENTAS EXENTAS PROVENIENTES DE DONACIONES Y APORTACIONES  DE RECURSOS PUBLICOS",
+        "RENTAS EXENTAS PROVENIENTES DE DONACIONES Y APORTACIONES  DE OTRAS LOCALES",
+        "RENTAS EXENTAS PROVENIENTES DE DONACIONES Y APORTACIONES  DEL EXTERIOR",
+        "OTRAS RENTAS EXENTAS",
+        "VENTAS NETAS DE ACTIVOS FIJOS (INFORMATIVO)",
+        "INGRESOS POR REEMBOLSO COMO INTERMEDIARIO (INFORMATIVO)"
+      ],
+      "calculo": { "tipo": "suma" }
+    },
+    "costos_produccion": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "mano_obra": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "gastos": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "utilidad_bruta": {
+      "variables": ["ingreso_operacional", "costos_produccion"],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["costos_produccion"]
+      }
+    },
+    "utilidad_antes_impuestos": {
+      "variables": [],
+      "calculo": { "tipo": "no_definido" }
+    },
+    "impuesto_renta": {
+      "variables": ["IMPUESTO A LA RENTA POR PAGAR DEL EJERCICIO"],
+      "calculo": { "tipo": "directo" }
+    },
+    "utilidad_neta": {
+      "variables": ["UTILIDAD DEL EJERCICIO", "(-) PERDIDA DEL EJERCICIO"],
+      "calculo": {
+        "tipo": "suma_resta",
+        "restar": ["(-) PERDIDA DEL EJERCICIO"]
+      }
+    },
+    "operaciones_partes_relacionadas": {
+      "variables": [
+        "ACTIVO CON PARTES RELACIONADAS DEL EXTERIOR",
+        "PASIVO CON PARTES RELACIONADAS DEL EXTERIOR",
+        "INGRESO CON PARTES RELACIONADAS DEL EXTERIOR",
+        "EGRESO CON PARTES RELACIONADAS DEL EXTERIOR",
+        "TOTAL OPERACIONES CON PARTES RELACIONADAS DEL EXTERIOR"
+      ],
+      "calculo": { "tipo": "directo" }
+    }
+  }
+}
